@@ -41,7 +41,80 @@
 				},
 				error: function(data) {
 					$panel.append(`<header><h2>${data.responseText} (${data.status})</h2></header>`);
-				}
+				},
+				complete: function() {
+					setTimeout(function() {
+
+						// Hide all panels.
+							$panels.hide();
+
+						// Show target panel.
+							$panel.show();
+
+						// Set new max/min height.
+							$main
+								.css('max-height', $panel.outerHeight() + 'px')
+								.css('min-height', $panel.outerHeight() + 'px');
+
+						// Reset scroll.
+							$window.scrollTop(0);
+
+						// Delay.
+							window.setTimeout(function() {
+
+								// Activate target panel.
+									$panel.removeClass('inactive');
+
+								// Clear max/min height.
+									$main
+										.css('max-height', '')
+										.css('min-height', '');
+
+								// IE: Refresh.
+									$window.triggerHandler('--refresh');
+
+								// Unlock.
+									locked = false;
+
+							}, (breakpoints.active('small') ? 0 : 500));
+
+					}, 250);setTimeout(function() {
+
+						// Hide all panels.
+							$panels.hide();
+
+						// Show target panel.
+							$panel.show();
+
+						// Set new max/min height.
+							$main
+								.css('max-height', $panel.outerHeight() + 'px')
+								.css('min-height', $panel.outerHeight() + 'px');
+
+						// Reset scroll.
+							$window.scrollTop(0);
+
+						// Delay.
+							window.setTimeout(function() {
+
+								// Activate target panel.
+									$panel.removeClass('inactive');
+
+								// Clear max/min height.
+									$main
+										.css('max-height', '')
+										.css('min-height', '');
+
+								// IE: Refresh.
+									$window.triggerHandler('--refresh');
+
+								// Unlock.
+									locked = false;
+
+							}, (breakpoints.active('small') ? 0 : 500));
+
+					}, 250);
+				} 
 			});
 		};
 
@@ -148,9 +221,10 @@
 						$link = $nav_links.first();
 
 					}
-
+					var isFirstLoad = !$panel.hasClass('loaded');
+					var isHomePanel = $panel.hasClass('intro');
 				// MrXiaoM: Load content from json.
-					if (!$panel.hasClass('loaded') && !$panel.hasClass('intro')) {
+					if (isFirstLoad && !isHomePanel) {
 						$panel.addClass('loaded');
 						loadPanel($panel);
 					}
@@ -170,6 +244,7 @@
 						.css('min-height', $main.height() + 'px');
 
 				// Delay.
+				if (!isFirstLoad || isHomePanel)
 					setTimeout(function() {
 
 						// Hide all panels.
