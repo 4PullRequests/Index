@@ -43,6 +43,11 @@
 					$panel.append(`<header><h2>${data.responseText} (${data.status})</h2></header>`);
 				},
 				complete: function() {
+					
+				// Set max/min height.
+				$main
+				.css('max-height', $main.height() + 'px')
+				.css('min-height', $main.height() + 'px');
 					setTimeout(function() {
 
 						// Hide all panels.
@@ -238,13 +243,13 @@
 				// Activate target link.
 					$link.addClass('active');
 
+					if (!isFirstLoad || isHomePanel) {
 				// Set max/min height.
 					$main
 						.css('max-height', $main.height() + 'px')
 						.css('min-height', $main.height() + 'px');
 
 				// Delay.
-				if (!isFirstLoad || isHomePanel)
 					setTimeout(function() {
 
 						// Hide all panels.
@@ -281,7 +286,7 @@
 							}, (breakpoints.active('small') ? 0 : 500));
 
 					}, 250);
-
+				}
 			});
 
 	// IE: Fixes.
