@@ -43,84 +43,39 @@
 					$panel.append(`<header><h2>${data.responseText} (${data.status})</h2></header>`);
 				},
 				complete: function() {
-					
-				// Set max/min height.
-				$main
-				.css('max-height', $main.height() + 'px')
-				.css('min-height', $main.height() + 'px');
-					setTimeout(function() {
-
-						// Hide all panels.
-							$panels.hide();
-
-						// Show target panel.
-							$panel.show();
-
-						// Set new max/min height.
-							$main
-								.css('max-height', $panel.outerHeight() + 'px')
-								.css('min-height', $panel.outerHeight() + 'px');
-
-						// Reset scroll.
-							$window.scrollTop(0);
-
-						// Delay.
-							window.setTimeout(function() {
-
-								// Activate target panel.
-									$panel.removeClass('inactive');
-
-								// Clear max/min height.
-									$main
-										.css('max-height', '')
-										.css('min-height', '');
-
-								// IE: Refresh.
-									$window.triggerHandler('--refresh');
-
-								// Unlock.
-									locked = false;
-
-							}, (breakpoints.active('small') ? 0 : 500));
-
-					}, 250);setTimeout(function() {
-
-						// Hide all panels.
-							$panels.hide();
-
-						// Show target panel.
-							$panel.show();
-
-						// Set new max/min height.
-							$main
-								.css('max-height', $panel.outerHeight() + 'px')
-								.css('min-height', $panel.outerHeight() + 'px');
-
-						// Reset scroll.
-							$window.scrollTop(0);
-
-						// Delay.
-							window.setTimeout(function() {
-
-								// Activate target panel.
-									$panel.removeClass('inactive');
-
-								// Clear max/min height.
-									$main
-										.css('max-height', '')
-										.css('min-height', '');
-
-								// IE: Refresh.
-									$window.triggerHandler('--refresh');
-
-								// Unlock.
-									locked = false;
-
-							}, (breakpoints.active('small') ? 0 : 500));
-
-					}, 250);
-				} 
+					console.log("first loaded.");
+					switchPageAnimate($panel);
+				}
 			});
+		},
+		switchPageAnimate = function($panel) {
+			setTimeout(function() {
+				// Hide all panels.
+					$panels.hide();
+				// Set new max/min height.
+					$main.animate({
+						'max-height': $panel.outerHeight() + 'px',
+						'min-height': $panel.outerHeight() + 'px'
+					}, 250, function() {
+						// Show target panel.
+						$panel.show(250);
+					});
+				// Reset scroll.
+					$window.scrollTop(0);
+				// Delay.
+					window.setTimeout(function() {
+						// Activate target panel.
+							$panel.removeClass('inactive');
+						// Clear max/min height.
+							$main
+								.css('max-height', '')
+								.css('min-height', '');
+						// IE: Refresh.
+							$window.triggerHandler('--refresh');
+						// Unlock.
+							locked = false;
+					}, (breakpoints.active('small') ? 0 : 500));
+			}, 250);
 		};
 
 	// Breakpoints.
@@ -243,50 +198,15 @@
 				// Activate target link.
 					$link.addClass('active');
 
-					if (!isFirstLoad || isHomePanel) {
 				// Set max/min height.
 					$main
 						.css('max-height', $main.height() + 'px')
 						.css('min-height', $main.height() + 'px');
 
-				// Delay.
-					setTimeout(function() {
-
-						// Hide all panels.
-							$panels.hide();
-
-						// Show target panel.
-							$panel.show();
-
-						// Set new max/min height.
-							$main
-								.css('max-height', $panel.outerHeight() + 'px')
-								.css('min-height', $panel.outerHeight() + 'px');
-
-						// Reset scroll.
-							$window.scrollTop(0);
-
-						// Delay.
-							window.setTimeout(function() {
-
-								// Activate target panel.
-									$panel.removeClass('inactive');
-
-								// Clear max/min height.
-									$main
-										.css('max-height', '')
-										.css('min-height', '');
-
-								// IE: Refresh.
-									$window.triggerHandler('--refresh');
-
-								// Unlock.
-									locked = false;
-
-							}, (breakpoints.active('small') ? 0 : 500));
-
-					}, 250);
-				}
+					if (!isFirstLoad || isHomePanel) {
+						console.log("loaded");
+						switchPageAnimate($panel);
+					}
 			});
 
 	// IE: Fixes.
