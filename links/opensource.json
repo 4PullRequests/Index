@@ -1,0 +1,11 @@
+{
+    "title": "开源",
+    "links": [
+        {
+            "name": "mirai",
+            "icon": "https://mirai.mamoe.net/favicon.ico",
+            "url": "https://github.com/mamoe/mirai",
+            "description": "高效率 QQ 机器人框架"
+        }
+    ]
+}

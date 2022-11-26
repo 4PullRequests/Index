@@ -1,0 +1,11 @@
+{
+    "title": "软件",
+    "links": [
+        {
+            "name": "Motrix",
+            "icon": "https://s.motrix.app/images/app-icon-square.png",
+            "url": "https://motrix.app/zh-CN",
+            "description": "强大的多线程下载工具，支持 Aria2, BitTorrent, 磁力链接, 迅雷链接"
+        }
+    ]
+}
