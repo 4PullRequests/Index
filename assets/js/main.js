@@ -23,13 +23,14 @@
 					var json = JSON.parse(data);
 					$panel.append(`<header><h2>${json.title}</h2></header>`);
 					var row = $('<div class="row link-container"></div>');
-					for (link in json.links) {
+					for (i in json.links) {
+						var link = json.links[i];
 						row.append(`
 						<div class="col-12">
 							<a href="${link.url}" target="_blank">
 								<img src="${link.icon}"></img>
 								<div class="link-info">
-									<span class="title">${link.title}</span>
+									<span class="title">${link.name}</span>
 									<span class="desc">${link.description}</span>
 								</div>
 							</a>
