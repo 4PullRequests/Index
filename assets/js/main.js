@@ -3,9 +3,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
 (function($) {
-
 	var $window = $(window),
 		$body = $('body'),
 		$wrapper = $('#wrapper'),
@@ -43,7 +41,6 @@
 					$panel.append(`<header><h2>${data.responseText} (${data.status})</h2></header>`);
 				},
 				complete: function() {
-					console.log("first loaded.");
 					switchPageAnimate($panel);
 				}
 			});
@@ -97,46 +94,32 @@
 	// Nav.
 		$nav_links
 			.on('click', function(event) {
-
 				var href = $(this).attr('href');
-
 				// Not a panel link? Bail.
 					if (href.charAt(0) != '#'
 					||	$panels.filter(href).length == 0)
 						return;
-
 				// Prevent default.
 					event.preventDefault();
 					event.stopPropagation();
-
 				// Change panels.
 					if (window.location.hash != href)
 						window.location.hash = href;
-
 			});
-
 	// Panels.
-
 		// Initialize.
 			(function() {
-
 				var $panel, $link;
-
 				// Get panel, link.
 					if (window.location.hash) {
-
 				 		$panel = $panels.filter(window.location.hash);
 						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
-
 					}
-
 				// No panel/link? Default to first.
 					if (!$panel
 					||	$panel.length == 0) {
-
 						$panel = $panels.first();
 						$link = $nav_links.first();
-
 					}
 				// MrXiaoM: Load content from json.
 					if (!$panel.hasClass('loaded') && !$panel.hasClass('intro')) {
@@ -147,39 +130,27 @@
 					$panels.not($panel)
 						.addClass('inactive')
 						.hide();
-
 				// Activate link.
 					$link
 						.addClass('active');
-
 				// Reset scroll.
 					$window.scrollTop(0);
-
 			})();
-
 		// Hashchange event.
 			$window.on('hashchange', function(event) {
-
 				var $panel, $link;
-
 				// Get panel, link.
 					if (window.location.hash) {
-
 				 		$panel = $panels.filter(window.location.hash);
 						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
-
 						// No target panel? Bail.
 							if ($panel.length == 0)
 								return;
-
 					}
-
 				// No panel/link? Default to first.
 					else {
-
 						$panel = $panels.first();
 						$link = $nav_links.first();
-
 					}
 					var isFirstLoad = !$panel.hasClass('loaded');
 					var isHomePanel = $panel.hasClass('intro');
@@ -188,67 +159,32 @@
 						$panel.addClass('loaded');
 						loadPanel($panel);
 					}
-
 				// Deactivate all panels.
 					$panels.addClass('inactive');
-
 				// Deactivate all links.
 					$nav_links.removeClass('active');
-
 				// Activate target link.
 					$link.addClass('active');
-
 				// Set max/min height.
 					$main
 						.css('max-height', $main.height() + 'px')
 						.css('min-height', $main.height() + 'px');
-
-					if (!isFirstLoad || isHomePanel) {
-						console.log("loaded");
-						switchPageAnimate($panel);
-					}
+					if (!isFirstLoad || isHomePanel) switchPageAnimate($panel);
 			});
-
 	// IE: Fixes.
 		if (browser.name == 'ie') {
-
 			// Fix min-height/flexbox.
 				$window.on('--refresh', function() {
-
 					$wrapper.css('height', 'auto');
-
 					window.setTimeout(function() {
-
 						var h = $wrapper.height(),
 							wh = $window.height();
-
 						if (h < wh)
 							$wrapper.css('height', '100vh');
-
 					}, 0);
-
 				});
-
 				$window.on('resize load', function() {
 					$window.triggerHandler('--refresh');
 				});
-
-			// Fix intro pic.
-				$('.panel.intro').each(function() {
-
-					var $pic = $(this).children('.pic'),
-						$img = $pic.children('img');
-
-					$pic
-						.css('background-image', 'url(' + $img.attr('src') + ')')
-						.css('background-size', 'cover')
-						.css('background-position', 'center');
-
-					$img
-						.css('visibility', 'hidden');
-
-				});
-
 		}
-
 })(jQuery);
