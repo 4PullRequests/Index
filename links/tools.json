@@ -6,6 +6,30 @@
             "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACIUlEQVRYCe1XPUvDUBQ1KcWPRdpCwYIOomlL7SBx8wc4ujopDkp1cdTNuungqqiTTq6ODjp0sYLiVGhTBwcXoaUO4gf9iOeEPCjBfNhScUgg3PvuPefc925bel+gz+VRFGU8EoksR6PRp0ql8uYCN9LJZHIkHA6vgvdSrVZrThzZKcmcruuHePcbjUYewpNueGKAvSUH74Eb3nUDkiTdmCJjzWYzhwJTdqLMEYP8KDHg5u2wIi4Jx87iFBI+Bp4kQwxEq7IszxWLxft2TiKRUFut1iXwEcaBOQJmDXi9HWf1vXRAL5fLFNonmQVwyut4PD4rxOgzJooTWyqVMm7FyXftgChCi05kUWTbjL2jwDx9xC5ghugjtqNpWpa+l8fYQCqVmqjX65sgKHgdu4JiM8AMmOJfpu037Sc2cGf6dqaFhBYMBvcKhcKjhC/OCNpXgHDIjtGLODZaCwQCKRnFF/66OA/EmqzNdhs/mV6c0oPmqOPn7UGga4i/Ab8Dfgf8Dvgd8Dvgd+BfdOC56z/1zgWeZcxm55zPOtfomPlq1CYdlwoF89kWApyKjUkZM9sg/Gnm2x9geCER03B7in4/eKo1iPUDeB9mHBBdw0C6i4uL5ngvwD3gFOBFIQiRE8z8q2L9kwXnGJwVkQPnDJwlsbZaxy8hZvcVCORIgr2KxWLrVgHrmhhiTU6OGlbMr9bpdDqEq9eGqqrDXonEkkOuG+cbJFHC+1aR7VgAAAAASUVORK5CYII=",
             "url": "https://i.4pr.top/nicodl",
             "description": "带有 API 的在线工具"
+        },
+        {
+            "name": "歌曲人声分离 [AI]",
+            "icon": "https://vocalremover.org/favicon.ico",
+            "url": "https://vocalremover.org/zh",
+            "description": "每IP每日可免费使用 1 次的强大在线工具"
+        },
+        {
+            "name": "歌曲乐器分离 [AI]",
+            "icon": "https://vocalremover.org/favicon.ico",
+            "url": "https://vocalremover.org/zh/splitter-ai",
+            "description": "每IP每日可免费使用 1 次的强大在线工具"
+        },
+        {
+            "name": "MP3 转 MIDI",
+            "icon": "https://www.bearaudiotool.com/img/favicon.ico",
+            "url": "https://www.bearaudiotool.com/zh/mp3-to-midi",
+            "description": "可大致将 MP3 转为相似的旋律"
+        },
+        {
+            "name": "SauceNAO 二次元图片来源搜索",
+            "icon": "https://saucenao.com/favicon.ico",
+            "url": "https://saucenao.com",
+            "description": "搜图神器，但只能搜全图不能搜部分"
         }
     ]
 }
