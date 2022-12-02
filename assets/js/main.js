@@ -26,7 +26,7 @@
 						row.append(`
 						<div class="col-12">
 							<a href="${link.url}" target="_blank">
-								<img src="${link.icon}"></img>
+								<img width="44" height="44" src="${link.icon}"></img>
 								<div class="link-info">
 									<span class="title">${link.name}</span>
 									<span class="desc">${link.description}</span>
