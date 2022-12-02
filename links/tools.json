@@ -30,6 +30,18 @@
             "icon": "https://saucenao.com/favicon.ico",
             "url": "https://saucenao.com",
             "description": "搜图神器，但只能搜全图不能搜部分"
+        },
+        {
+            "name": "屏幕共享",
+            "icon": "https://app.screego.net/favicon.ico",
+            "url": "https://app.screego.net",
+            "description": "可在线使用的免费开源屏幕共享服务"
+        },
+        {
+            "name": "A Tool Box",
+            "icon": "http://www.atoolbox.net/favicon.ico",
+            "url": "http://www.atoolbox.net/",
+            "description": "在线工具集合"
         }
     ]
 }
